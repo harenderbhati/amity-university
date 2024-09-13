@@ -146,8 +146,8 @@ const logoutUser = asyncHandler ( async (req,res)=>{
 const refreshAccessToken= asyncHandler( async (req,res)=>{
   const incomingAccessToken=  req.cookie.refreshToken || req.body.refreshToken
 
-  // Consfusion hai incoming Token nahi aayega tab error throw hone chaiye !!!!!
-  if (incomingAccessToken) {
+  
+  if (!incomingAccessToken) {
     throw new ApiError(401,"unauthorizated request");
     
   }
